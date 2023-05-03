@@ -17,10 +17,48 @@ class _EasyScreenState extends State<EasyScreen> {
       body: Center(
         child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  child: Text('Carregando...'),
+                  onPressed: ()  {
+                      EasyLoading.show(status: 'Carregando...');
+                  },
+                ),
+                const SizedBox(width: 10,),
+                ElevatedButton(
+                  child: const Text('Parar'),
+                  onPressed: ()  {
+                    EasyLoading.dismiss();
+                  },
+                ),
+              ],
+            ),
             ElevatedButton(
-              child: Text('Clique'),
+              child: Text('Sucesso!'),
               onPressed: ()  {
-                  EasyLoading.show(status: 'Carregando...');
+                  EasyLoading.showSuccess('Sucesso!');
+              },
+            ),
+            ElevatedButton(
+              child: Text('Erro...'),
+              onPressed: ()  {
+                  EasyLoading.showError('Erro...');
+              },
+            ),
+            ElevatedButton(
+              child: Text('Toast no meio.'),
+              onPressed: ()  {
+                EasyLoading.instance.toastPosition = EasyLoadingToastPosition.center;
+                EasyLoading.showToast('Eu sou um toast!');
+              },
+            ),
+            ElevatedButton(
+              child: Text('Toast embaixo.'),
+              onPressed: ()  {
+                EasyLoading.instance.toastPosition = EasyLoadingToastPosition.bottom;
+                EasyLoading.showToast('Eu sou um toast!');
               },
             ),
           ],

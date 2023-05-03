@@ -12,12 +12,15 @@ import 'home_screen.dart';
 
 void main() {
   runApp(DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (BuildContext context) => MaterialApp(
           useInheritedMediaQuery: true,
           locale: DevicePreview.locale(context),
-          // builder: DevicePreview.appBuilder,
-          builder: EasyLoading.init(),
+          builder: (context, child) {
+            child = DevicePreview.appBuilder(context, child);
+            child = EasyLoading.init()(context, child);
+            return child;
+          },
 
           debugShowCheckedModeBanner: false,
 

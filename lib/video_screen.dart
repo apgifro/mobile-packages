@@ -31,7 +31,9 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Video Player',),
+        title: const Text(
+          'Video Player',
+        ),
       ),
       body: Column(children: [
         Center(
@@ -40,7 +42,7 @@ class _VideoScreenState extends State<VideoScreen> {
                   aspectRatio: _video.value.aspectRatio,
                   child: VideoPlayer(_video),
                 )
-              : Container(),
+              : const Center(child: CircularProgressIndicator()),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,9 +53,11 @@ class _VideoScreenState extends State<VideoScreen> {
                   _video.setPlaybackSpeed(1);
                 });
               },
-              icon: Icon(Icons.slow_motion_video, size: 28,),
+              icon: const Icon(
+                Icons.slow_motion_video,
+                size: 28,
+              ),
             ),
-
             IconButton(
               onPressed: () {
                 setState(() {
@@ -61,16 +65,20 @@ class _VideoScreenState extends State<VideoScreen> {
                 });
               },
               icon: Icon(
-                  _video.value.isPlaying ? Icons.pause : Icons.play_arrow, size: 28,),
+                _video.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                size: 28,
+              ),
             ),
-
             IconButton(
               onPressed: () {
                 setState(() {
                   _video.setPlaybackSpeed(2.0);
                 });
               },
-              icon: Icon(Icons.speed, size: 28,),
+              icon: const Icon(
+                Icons.speed,
+                size: 28,
+              ),
             ),
           ],
         ),
