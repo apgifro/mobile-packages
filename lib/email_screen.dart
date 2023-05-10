@@ -34,6 +34,7 @@ class _EmailScreenState extends State<EmailScreen> {
             child: TextField(
               controller: _email,
               maxLines: 1,
+              keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 hintText: "Digite seu e-mail",
                 border: OutlineInputBorder(),

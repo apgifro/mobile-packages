@@ -6,6 +6,7 @@ import 'package:packs/photo_screen.dart';
 import 'package:packs/text_screen.dart';
 import 'package:packs/video_screen.dart';
 
+import 'cpf_screen.dart';
 import 'easy_loading_screen.dart';
 import 'email_screen.dart';
 import 'home_screen.dart';
@@ -29,7 +30,6 @@ void main() {
             useMaterial3: true,
           ),
 
-
           initialRoute: '/home',
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
@@ -45,6 +45,8 @@ void main() {
                 return MaterialPageRoute(builder: (context) => EasyScreen());
               case '/email_validator':
                 return MaterialPageRoute(builder: (context) => EmailScreen());
+              case '/cpf_validator':
+                return MaterialPageRoute(builder: (context) => CPFScreen());
             }
           })));
 }

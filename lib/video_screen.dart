@@ -35,54 +35,56 @@ class _VideoScreenState extends State<VideoScreen> {
           'Video Player',
         ),
       ),
-      body: Column(children: [
-        Center(
-          child: _video.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _video.value.aspectRatio,
-                  child: VideoPlayer(_video),
-                )
-              : const Center(child: CircularProgressIndicator()),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _video.setPlaybackSpeed(1);
-                });
-              },
-              icon: const Icon(
-                Icons.slow_motion_video,
-                size: 28,
+      body: SingleChildScrollView(
+        child: Column(children: [
+          Center(
+            child: _video.value.isInitialized
+                ? AspectRatio(
+                    aspectRatio: _video.value.aspectRatio,
+                    child: VideoPlayer(_video),
+                  )
+                : const Center(child: CircularProgressIndicator()),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    _video.setPlaybackSpeed(1);
+                  });
+                },
+                icon: const Icon(
+                  Icons.slow_motion_video,
+                  size: 28,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _video.value.isPlaying ? _video.pause() : _video.play();
-                });
-              },
-              icon: Icon(
-                _video.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                size: 28,
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    _video.value.isPlaying ? _video.pause() : _video.play();
+                  });
+                },
+                icon: Icon(
+                  _video.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                  size: 28,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _video.setPlaybackSpeed(2.0);
-                });
-              },
-              icon: const Icon(
-                Icons.speed,
-                size: 28,
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    _video.setPlaybackSpeed(2.0);
+                  });
+                },
+                icon: const Icon(
+                  Icons.speed,
+                  size: 28,
+                ),
               ),
-            ),
-          ],
-        ),
-      ]),
+            ],
+          ),
+        ]),
+      ),
     );
   }
 }
