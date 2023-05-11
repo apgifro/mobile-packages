@@ -8,6 +8,7 @@ photo_view: ^0.14.0
 animated_text_kit: ^4.2.2
 flutter_easyloading: ^3.0.5
 email_validator: ^2.1.17
+cpf_cnpj_validator: ^2.0.0
 ```
 
 ## Imagens
